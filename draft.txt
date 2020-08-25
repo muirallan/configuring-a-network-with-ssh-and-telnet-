@@ -1,0 +1,93 @@
+config
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+int g0/1
+ip address 10.10.10.2 255.255.255.0
+no shut
+
+
+int g0/0
+ip address 192.168.6.1
+% Incomplete command.
+ip address 192.168.6.1 255.255.255.0
+no shut
+
+
+
+
+
+	
+
+exit
+router rip
+version 2
+network 10.10.10.0
+network 192.168.6.0
+no auto-summary
+#ip domain-name netfund.com
+VA(config)#username Admin 
+VA(config)#username Admin pr
+VA(config)#username Admin privilege 15 password muir
+VA(config)#line vty 0 4
+VA(config-line)#privilege level 15
+VA(config-line)#login local
+VA(config-line)#transp
+transport in
+transport input ssh
+
+
+
+
+security passwords min
+security passwords min-length 4
+line console 0
+password muir
+exec-timeout 10 0
+login
+logging sy
+logging synchronous 
+exit
+line vty 0 4
+password muir
+exec-timeout 10 0
+login
+exit
+login bl
+login block-
+login block-for 60 attempts 2 with 30
+login on-success log
+login on-failure log every 2
+exit
+                                
+
+
+config
+
+ip domain-name netfund.com
+username Admin 
+username Admin pr
+username Admin privilege 15 password muir
+line vty 0 4
+privilege level 15
+login local
+transp
+transport in
+transport input ssh
+exit
+cry
+crypto k
+crypto key zeroize rsa
+
+
+crypto key ge
+crypto key generate r
+crypto key generate rsa gen
+
+crypto key generate rsa general-keys modulus 1024
+
+
+  
+	
+ip ssh time-out 90
+ip ssh au
+ip ssh authentication-retries 2
